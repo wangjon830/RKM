@@ -1,0 +1,1281 @@
+{
+	"info": {
+		"_postman_id": "f50fb0c4-df16-4030-9ecb-babfc1a6ee19",
+		"name": "Recipe and Kitchen Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account Creation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"rnt20@scarletmail.rutgers.edu\",\r\n    \"password\": \"password\",\r\n    \"firstName\": \"Rahul\",\r\n    \"lastName\": \"Trivedi\",\r\n    \"username\": \"rnt20\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/register",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"register"
+					]
+				},
+				"description": "Testing Account Creation"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"rnt20@scarletmail.rutgers.edu\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/getUser?_id=625da0818d09aba081b46787",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getUser"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "625da0818d09aba081b46787"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/getImg?_id=6255dfb921aa742f4c9fc0f0",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getImg"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "6255dfb921aa742f4c9fc0f0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Follow",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"625da0498d09aba081b46786\", \r\n    \"following_id\": \"625da0818d09aba081b46787\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/follow",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"follow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Followers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/getFollowers?_id=625da0818d09aba081b46787",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getFollowers"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "625da0818d09aba081b46787"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Following",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/getFollowers?_id=625da0818d09aba081b46787",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getFollowers"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "625da0818d09aba081b46787"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unfollow",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"625da0498d09aba081b46786\", \r\n    \"following_id\": \"625da0818d09aba081b46787\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/unfollow",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"unfollow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Recipe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"625da0498d09aba081b46786\",\r\n    \"title\": \"Test Recipe\",\r\n    \"pictures\": [],\r\n    \"instructions\": \"instructions\",\r\n    \"ingredients\": [],\r\n    \"prep_time\": 50,\r\n    \"cook_time\": 50,\r\n    \"yield\": 1,\r\n    \"tags\": [],\r\n    \"description\": \"description\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/addRecipe",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"addRecipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Recipe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"list_type\": \"saved_recipes\",\r\n    \"user_id\": \"625da0818d09aba081b46787\",\r\n    \"recipe_id\": \"625da90d84d9db6e6c99c921\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/saveLikeRecipe",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"saveLikeRecipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Saved Recipes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/getSavedLikedRecipes?user_id=625da0818d09aba081b46787&list_type=saved_recipes",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getSavedLikedRecipes"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "625da0818d09aba081b46787"
+						},
+						{
+							"key": "list_type",
+							"value": "saved_recipes"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unsave Recipe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"list_type\": \"saved_recipes\",\r\n    \"user_id\": \"625da0818d09aba081b46787\",\r\n    \"recipe_id\": \"625da90d84d9db6e6c99c921\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/unsaveUnlikeRecipe",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"unsaveUnlikeRecipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Like Recipe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"list_type\": \"liked_recipes\",\r\n    \"user_id\": \"625da0818d09aba081b46787\",\r\n    \"recipe_id\": \"625da90d84d9db6e6c99c921\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/saveLikeRecipe",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"saveLikeRecipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Liked Recipes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/getSavedLikedRecipes?user_id=625da0818d09aba081b46787&list_type=liked_recipes",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getSavedLikedRecipes"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "625da0818d09aba081b46787"
+						},
+						{
+							"key": "list_type",
+							"value": "liked_recipes"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unlike Recipe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"list_type\": \"liked_recipes\",\r\n    \"user_id\": \"625da0818d09aba081b46787\",\r\n    \"recipe_id\": \"625da90d84d9db6e6c99c921\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/unsaveUnlikeRecipe",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"unsaveUnlikeRecipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Recipe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/getRecipe?_id=625da90d84d9db6e6c99c921",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getRecipe"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "625da90d84d9db6e6c99c921"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ingredient",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/getIngredient?name=chicken",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getIngredient"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "chicken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Pantry Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"625da0818d09aba081b46787\",\r\n    \"list_type\": \"pantry\", \r\n    \"category\": \"protein\", \r\n    \"name\": \"chicken\", \r\n    \"quantity\": \"1\", \r\n    \"unit\": \"lbs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/addUserItem",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"addUserItem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Pantry Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"625da0818d09aba081b46787\",\r\n    \"list_type\": \"pantry\",\r\n    \"old_category\": \"protein\", \r\n    \"old_name\": \"chicken\",\r\n    \"category\": \"protein\", \r\n    \"name\": \"beef\", \r\n    \"quantity\": \"1\", \r\n    \"unit\": \"lbs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/editUserItem",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"editUserItem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Pantry Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"625da0818d09aba081b46787\",\r\n    \"list_type\": \"pantry\", \r\n    \"category\": \"protein\", \r\n    \"name\": \"beef\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/deleteUserItem",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"deleteUserItem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pantry Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/getUserItems?_id=625da0818d09aba081b46787&list_type=pantry",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getUserItems"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "625da0818d09aba081b46787"
+						},
+						{
+							"key": "list_type",
+							"value": "pantry"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Shopping Cart Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"625da0818d09aba081b46787\",\r\n    \"list_type\": \"shopping_list\", \r\n    \"category\": \"protein\", \r\n    \"name\": \"chicken\", \r\n    \"quantity\": \"1\", \r\n    \"unit\": \"lbs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/addUserItem",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"addUserItem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Shopping Cart Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"625da0818d09aba081b46787\",\r\n    \"list_type\": \"shopping_list\",\r\n    \"old_category\": \"protein\", \r\n    \"old_name\": \"chicken\",\r\n    \"category\": \"protein\", \r\n    \"name\": \"beef\", \r\n    \"quantity\": \"1\", \r\n    \"unit\": \"lbs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/editUserItem",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"editUserItem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Shopping Cart Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"625da0818d09aba081b46787\",\r\n    \"list_type\": \"shopping_list\", \r\n    \"category\": \"protein\", \r\n    \"name\": \"beef\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/deleteUserItem",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"deleteUserItem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Shopping Cart Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/getUserItems?_id=625da0818d09aba081b46787&list_type=shopping_list",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getUserItems"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "625da0818d09aba081b46787"
+						},
+						{
+							"key": "list_type",
+							"value": "shopping_list"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":\"625da0818d09aba081b46787\",\r\n    \"comment_text\":\"comment\", \r\n    \"isReply\": false, \r\n    \"commentHead_id\": \"625da90d84d9db6e6c99c921\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/addComment",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"addComment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/getRecipeComments?_id=625da90d84d9db6e6c99c921&type=recipe",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getRecipeComments"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "625da90d84d9db6e6c99c921"
+						},
+						{
+							"key": "type",
+							"value": "recipe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test('Request Success', function(){\r",
+							"    const res = pm.response.json();\r",
+							"    pm.expect(res).to.have.property(\"success\", true);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/search?query=chicken&type=username, title",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "chicken"
+						},
+						{
+							"key": "type",
+							"value": "username, title"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recommendations",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response Status', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/recommend?user_id=6237373e26a530c81215f7c8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"recommend"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "6237373e26a530c81215f7c8"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
